@@ -233,7 +233,6 @@ $user_id = $_POST['user_id'] ?? null;
 <body>
 <?php
 if (!$user_id) {
-    echo "<h1>Brak user_id. Nie można kontynuować.</h1>";
     exit;
 }
 
@@ -246,9 +245,7 @@ $row = $result->fetch_assoc();
 
 if ($row) {
     $nickname = $row['nickname'];
-    echo "✅ Gracz z user_id $user_id już jest w online_players.<br>";
 } else {
-        echo "❌ Gracza z user_id $user_id NIE MA w online_players. Przenoszę...<br>";
     include 'move_player.php';
     include 'db_connection.php';
         $stmt = $conn->prepare($sql);

@@ -43,7 +43,7 @@ if (!$user_id) {
     exit;
 }
 
-echo "<p>Otrzymano user_id: <code>" . htmlspecialchars($user_id) . "</code></p>";
+
 
 echo '
 <form id="nicknameForm">
@@ -53,7 +53,6 @@ echo '
     <label for="password">Podaj swoje hasło:</label>
     <input type="password" id="password" name="password" required placeholder="Twoje hasło">
 
-    <p><strong>Debug: user_id = ' . htmlspecialchars($user_id) . '</strong></p>
 
     <input type="hidden" name="user_id" id="user_id" value="' . htmlspecialchars($user_id) . '">
 

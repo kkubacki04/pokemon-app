@@ -34,11 +34,11 @@ The relational schema is optimized to act as the absolute *Single Source of Trut
    ```bash
    git clone [https://github.com/kkubacki04/pokemon-app.git](https://github.com/kkubacki04/pokemon-app.git)
    cd pokemon-app
-   # 🎮 Pokémon Real-Time Multiplayer Arena
+   #  Pokémon Real-Time Multiplayer Arena
 
 A real-time, browser-based turn-based RPG Pokémon battle game. This project demonstrates backend-driven state machine management, low-level WebSocket synchronization, complex side-effect engines (RPG status effects), and strong web security practices using vanilla PHP and MySQL—without relying on high-level frameworks or third-party real-time services (like Firebase or Pusher).
 
-## 🌟 Core Technical Architecture & Features
+##  Core Technical Architecture & Features
 
 * **Database-Driven Turn-Based State Machine:** Game turns (`player_round`) are managed entirely on the backend to prevent client-side tampering. Even if a user alters the DOM to unlock action buttons, the PHP backend rejects unauthorized requests by validating the current turn state directly against the database.
 * **Low-Level WebSocket Synchronization:** Built using **Ratchet** and **ReactPHP** as an asynchronous event loop. It maintains active player roles, handles sudden browser refreshes cleanly without losing connection slot reservations, and broadcasts structural view updates across clients in real-time.
@@ -48,7 +48,7 @@ A real-time, browser-based turn-based RPG Pokémon battle game. This project dem
 * **Post-Redirect-Get (PRG) Pattern Compliance:** Form submissions for combat abilities are routed through the PRG design pattern. After mutations are written to the database, the backend forces an immediate `GET` redirection, entirely neutralizing the common "Form Resubmission" flaw on client-side page refreshes.
 * **Strict Relational Database Integrity:** Fully protected against SQL Injection via strict Prepared Statements. Leverages clean indexing, database transactions for session resets, and structured relationships between pokemon squads and condition modifiers.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **Backend:** PHP 8.x (Object-Oriented, Custom Event Loops)
 * **Real-time Networking:** Ratchet (WebSockets), ReactPHP
@@ -56,7 +56,7 @@ A real-time, browser-based turn-based RPG Pokémon battle game. This project dem
 * **Database:** MySQL / MariaDB (Prepared Statements, Transactions)
 * **Dependency Manager:** Composer
 
-## 📊 Database Design Highlights
+##  Database Design Highlights
 
 The relational schema is optimized to act as the absolute *Single Source of Truth* across distributed sessions:
 * `player_round` - Drives the global turn state machine.
@@ -64,7 +64,7 @@ The relational schema is optimized to act as the absolute *Single Source of Trut
 * `squad1status` / `squad2status` - Persistent matrices monitoring passive and active crowd control status conditions.
 * `type_chart` - Matrix mapping elemental effectiveness indicators (dynamic structural lookups).
 
-## 🚀 Local Installation & Deployment
+##  Local Installation & Deployment
 
 1. **Clone the Repo:**
    ```bash

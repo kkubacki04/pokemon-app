@@ -1,0 +1,41 @@
+.hidden {
+    display: none;
+}
+
+.message-box {
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.body{
+    color: blue;
+}
+.message-box.success {
+    background-color: green;
+    color: white;
+}
+
+.message-box.error {
+    background-color: darkred;
+    color: white;
+}
+#countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#countdown {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffcc00;
+    background-color: #222;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+

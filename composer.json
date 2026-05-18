@@ -1,0 +1,11 @@
+{
+    "name": "death/pokemon",
+    "autoload": {
+        "psr-4": {
+            "Death\\Pokemon\\": "src/"
+        }
+    },
+    "require": {
+        "cboden/ratchet": "^0.4.4"
+    }
+}

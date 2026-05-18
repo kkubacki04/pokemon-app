@@ -2,6 +2,10 @@
 
 A real-time, browser-based turn-based RPG Pokémon battle game. This project demonstrates backend-driven state machine management, low-level WebSocket synchronization, complex side-effect engines (RPG status effects), and strong web security practices using vanilla PHP and MySQL—without relying on high-level frameworks or third-party real-time services (like Firebase or Pusher).
 
+
+<img width="823" height="806" alt="image" src="https://github.com/user-attachments/assets/48868bfb-91ee-42f8-b420-d9cd1f789c36" />
+
+
 ##  Core Technical Architecture & Features
 
 * **Database-Driven Turn-Based State Machine:** Game turns (`player_round`) are managed entirely on the backend to prevent client-side tampering. Even if a user alters the DOM to unlock action buttons, the PHP backend rejects unauthorized requests by validating the current turn state directly against the database.
@@ -104,3 +108,7 @@ Open a standard browser tab at: http://localhost:8080/Pokemon/logowanie.php (Pla
 Open a secondary Incognito / Private window at the same link (Player 2) to prevent local session storage overrides.
 
 Lock in your rosters, hit "Start", and enter the arena.
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/3ba78af6-c82d-48d6-8c3d-5631383b6ff4" />
+<img width="1914" height="905" alt="image" src="https://github.com/user-attachments/assets/ee514818-a3f2-4622-832a-d734985f311d" />
+<img width="1895" height="932" alt="image" src="https://github.com/user-attachments/assets/6a797ac0-4b3d-4dd5-9a25-3e412c172f7a" />
+

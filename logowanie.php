@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
 
                         setTimeout(() => {
-                            window.location.href = "http://192.168.215.212:8080/pokemon/stronapokemony.php";
+                            window.location.href = "STRONAPOKEMONY.php";
                         }, 4000);
                     } else if (data.includes("Niepoprawne hasło")) {
                         messageBox.textContent = "❌ Niepoprawne hasło. Spróbuj ponownie.";

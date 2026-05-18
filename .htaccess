@@ -1,1 +1,1 @@
-Header set Content-Security-Policy "default-src 'self'; connect-src 'self' ws://192.168.215.212:9000; script-src 'self' 'unsafe-inline';"
+Header set Content-Security-Policy "default-src 'self'; connect-src 'self' ws://localhost:9000; script-src 'self' 'unsafe-inline';"

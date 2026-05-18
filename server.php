@@ -160,42 +160,45 @@ public function onOpen(ConnectionInterface $conn) {
 
     
 
-    private function startCountdown() {
-    if ($this->countdownActive) {
-        echo "Odliczanie już trwa – przerwano próbę ponownego uruchomienia.\n";
-        return;
-    }
-
-    $countdown = 5;
-    $this->countdownActive = true;
-
-    $this->countdownTimer = $this->loop->addPeriodicTimer(1, function () use (&$countdown) {
-        foreach ($this->players as $player) {
-            if ($player instanceof ConnectionInterface) {
-                $player->send(json_encode([
-                    'type' => 'countdown',
-                    'countdown' => $countdown
-                ]));
-            }
+private function startCountdown() {
+        if ($this->countdownActive) {
+            echo "Odliczanie już trwa – przerwano próbę ponownego uruchomienia.\n";
+            return;
         }
 
-        if ($countdown === 0) {
+        $countdown = 5;
+        $this->countdownActive = true;
+
+        $this->countdownTimer = $this->loop->addPeriodicTimer(1, function () use (&$countdown) {
             foreach ($this->players as $player) {
-                if ($player instanceof ConnectionInterface) {
+                // DODANE: Sprawdzamy && $this->clients->contains($player)
+                if ($player instanceof ConnectionInterface && $this->clients->contains($player)) {
                     $player->send(json_encode([
-                        'type' => 'redirect',
-                        'url' => 'walkapokemon.php'
+                        'type' => 'countdown',
+                        'countdown' => $countdown
                     ]));
                 }
             }
 
-            echo "Przekierowano graczy na walkapokemon.php\n";
-            $this->readyPlayers = [];
-            $this->stopCountdown();         }
+            if ($countdown === 0) {
+                foreach ($this->players as $player) {
+                    // DODANE: Sprawdzamy && $this->clients->contains($player)
+                    if ($player instanceof ConnectionInterface && $this->clients->contains($player)) {
+                        $player->send(json_encode([
+                            'type' => 'redirect',
+                            'url' => 'walkapokemon.php'
+                        ]));
+                    }
+                }
 
-        $countdown--;
-    });
-}
+                echo "Przekierowano graczy na walkapokemon.php\n";
+                $this->readyPlayers = [];
+                $this->stopCountdown();         
+            }
+
+            $countdown--;
+        });
+    }
 private function stopCountdown() {
     if ($this->countdownTimer) {
         $this->loop->cancelTimer($this->countdownTimer);
@@ -205,14 +208,9 @@ private function stopCountdown() {
     }
 }
 
-    public function onClose(ConnectionInterface $conn) {
+public function onClose(ConnectionInterface $conn) {
         echo "Połączenie zamknięte: {$conn->resourceId} (user_id: {$conn->userId})\n";
 
-        if ($this->players[1] === $conn) {
-            unset($this->players[1]);
-        } elseif ($this->players[2] === $conn) {
-            unset($this->players[2]);
-        }
 
         $this->clients->detach($conn);
     }

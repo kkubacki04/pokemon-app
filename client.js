@@ -11,7 +11,7 @@ if (!userId) {
 
 console.log("User ID: " + userId);  
 
-const socket = new WebSocket("ws://192.168.215.212:9000?user_id=" + userId);
+const socket = new WebSocket("ws://" + window.location.hostname + ":9000?user_id=" + userId);
 socket.onopen = function () {
     console.log("Połączono z serwerem WebSocket jako: " + userId);
 };

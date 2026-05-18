@@ -1,6 +1,8 @@
 #  Pokémon Real-Time Multiplayer Arena
 
 A real-time, browser-based turn-based RPG Pokémon battle game. This project demonstrates backend-driven state machine management, low-level WebSocket synchronization, complex side-effect engines (RPG status effects), and strong web security practices using vanilla PHP and MySQL—without relying on high-level frameworks or third-party real-time services (like Firebase or Pusher).
+
+
 <img width="823" height="806" alt="image" src="https://github.com/user-attachments/assets/48868bfb-91ee-42f8-b420-d9cd1f789c36" />
 
 
